@@ -66,7 +66,9 @@
       <section class="section hero-section overlay">
         <div class="container">
           <h1 class="hero-title">Effective Solutions for Your Business</h1>
-          <button class="hero-button" type="button">Order Service</button>
+          <button class="hero-button" type="button" data-modal-open>
+            Order Service
+          </button>
         </div>
       </section>
       <!--секція 2 без назви з описом стратегії, цілей, компетенцій, технологій-->
@@ -446,5 +448,20 @@
         </div>
       </div>
     </footer>
+
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <button class="modal-close" type="button" data-modal-close>
+          <svg class="modal-close-button">
+            <use href="./images/css/icons.svg#icon-close"></use>
+          </svg>
+        </button>
+        <h2></h2>
+        <!--Заголовок завжди h2 у модальному вікні-->
+        <p></p>
+      </div>
+    </div>
+
+    <script src="./js/modal.js"></script>
   </body>
 </html>

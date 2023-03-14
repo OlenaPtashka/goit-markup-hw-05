@@ -9,6 +9,8 @@
   --color-button-borber-grey: #8e8f99;
   --color-custemers: #afb1b8;
   --color-social-link-footer-active: #31d0aa;
+  --color-modal-backdrop: rgba(46, 47, 66, 0.4);
+  --color-modal-background: #fcfcfc;
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -533,4 +535,59 @@ img {
   width: 24px;
   height: 24px;
   fill: var(--color-background-light);
+}
+
+/*Modal*/
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 88px 0;
+  background-color: var(--color-modal-backdrop);
+  transition: opacity 500ms, visibility 500ms;
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.modal {
+  position: relative;
+  overflow: auto;
+  width: 100%;
+  max-width: 408px;
+  height: 100%;
+  max-height: 576px;
+  background-color: var(--color-modal-background);
+}
+
+.backdrop.is-hidden .modal {
+  transform: scale(0);
+  transition: transform 500ms;
+}
+
+.modal-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 1px solid;
+  border-radius: 50%;
+  border-color: rgba(0, 0, 0, 0.1);
+  background-color: var(--color-background-header-main);
+}
+
+.modal-close-button {
+  width: 8px;
+  height: 8px;
+  fill: var(--color-main-dark);
 }

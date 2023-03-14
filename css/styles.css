@@ -9,6 +9,7 @@
   --color-button-borber-grey: #8e8f99;
   --color-custemers: #afb1b8;
   --color-social-link-footer-active: #31d0aa;
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -122,6 +123,7 @@ img {
 }
 
 .nav-link {
+  position: relative;
   display: block;
   padding: 24px 0;
   text-decoration: none;
@@ -130,6 +132,21 @@ img {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
+}
+
+.nav-link.current {
+  color: var(--color-pressed-button);
+}
+
+.nav-link.current::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--color-pressed-button);
 }
 
 .nav-link:active,
@@ -321,7 +338,8 @@ img {
 .customers-button {
   display: block;
   box-sizing: content-box;
-  padding: 16px 32px;
+  width: 168px;
+  height: 88px;
   border: 1px solid var(--color-button-borber-grey);
   border-radius: 4px;
 }
@@ -330,6 +348,7 @@ img {
 .customers-button:focus,
 .customers-button:active {
   border: 1px solid var(--color-pressed-button);
+  fill: var(--color-pressed-button);
 }
 
 .flex-list-customers {
@@ -339,8 +358,11 @@ img {
 }
 
 .img-customers {
+  display: block;
+  box-sizing: content-box;
   width: 104px;
   height: 56px;
+  padding: 16px 32px;
   fill: var(--color-custemers);
 }
 
@@ -390,6 +412,31 @@ img {
 .radio-button-list {
   justify-content: center;
   margin-bottom: 72px;
+}
+
+.portfolio-image-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-description {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 40px 32px 0 32px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-background-light);
+  background-color: var(--color-primary-brand);
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-card:hover .portfolio-description {
+  transform: translateY(0);
 }
 
 /*колір та хар-ка проекту*/
